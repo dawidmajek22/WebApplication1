@@ -1,0 +1,46 @@
+﻿@page
+@model WebApplication1.Pages.Hod_Ras.DeleteModel
+@{
+    ViewData["Title"] = "Usuń";
+}
+<h3>Czy napewno chcesz usunąć?</h3>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Hod_Rasy.NAZWA)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.Hod_Rasy.NAZWA)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Hod_Rasy.GRUPA)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.Hod_Rasy.GRUPA)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Hod_Rasy.is_fci)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.Hod_Rasy.is_fci)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Hod_Rasy.nr_grupy)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.Hod_Rasy.nr_grupy)
+        </dd>
+
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Hod_Rasy.ID" />
+        <a asp-page="./Index" class="btn btn-primary" title="Powrót">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+        <button type="submit" class="btn btn-danger" title="Usuń">
+            <i class="bi bi-check"></i>
+        </button> |
+    </form>
+</div>

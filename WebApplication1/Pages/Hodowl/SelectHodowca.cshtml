@@ -1,0 +1,17 @@
+﻿@page
+@model WebApplication1.Pages.Hodowl.SelectHodowcaModel
+
+<h2>Wybierz hodowcę</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="HodowlaId" />
+
+    <select asp-for="HodowcaId" class="form-control">
+        @foreach (var h in Model.Hodowcy)
+        {
+            <option value="@h.IdHodowcy">@h.Imie @h.Nazwisko</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-success mt-2">Zapisz</button>
+</form>

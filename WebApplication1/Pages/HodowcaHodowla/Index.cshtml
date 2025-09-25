@@ -1,0 +1,29 @@
+﻿@page
+@model WebApplication1.Pages.HodowcaHodowla.IndexModel
+@{
+    ViewData["Title"] = "Psy";
+}
+<h1>Pies_hodowca</h1>
+<hr />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Imię_Właściciela</th>
+            <th>Nazwisko_ Właściciela</th>
+            <th>Nazwa hodowli</th>
+            <th>Maść_Psa</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Dane)
+        {
+            <tr>
+                <td>@item.Imie</td>
+                <td>@item.Nazwisko</td>
+                <td>@item.Nazwa</td>
+                <td>@item.Masc</td>
+            </tr>
+        }
+    </tbody>
+</table>

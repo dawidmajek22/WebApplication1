@@ -1,0 +1,58 @@
+﻿@page
+@model WebApplication1.Pages.Hodowl.EditModel
+@{
+    ViewData["Title"] = "Edytuj";
+}
+
+<h1></h1>
+<hr />
+
+<div class="row">
+    <div class="col-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Hodowla.HodowlaId" />
+            <div class="form-group">
+                <label asp-for="Hodowla.Nazwa" class="control-label"></label>
+                <input asp-for="Hodowla.Nazwa" class="form-control" />
+                <span asp-validation-for="Hodowla.Nazwa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hodowla.Masc" class="control-label"></label>
+                <input asp-for="Hodowla.Masc" class="form-control" />
+                <span asp-validation-for="Hodowla.Masc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Hodowca</label>
+                <div>
+                    @if (Model.Hodowla?.Hodowca != null)
+                    {
+                        <span class="fw-bold">
+                            Aktualny: @Model.Hodowla.Hodowca.Imie @Model.Hodowla.Hodowca.Nazwisko
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Brak przypisanego hodowcy</span>
+                    }
+                    <a asp-page="./SelectHodowca" asp-route-hodowlaId="@Model.Hodowla.HodowlaId" class="btn btn-secondary ms-3">
+                        Wybierz hodowcę
+                    </a>
+                </div>
+            </div>
+            <div class="form-group">
+                <a asp-page="./Index" class="btn btn-primary" title="Powrót">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <button type="submit" class="btn btn-success" title="Usuń">
+                    <i class="bi bi-check"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

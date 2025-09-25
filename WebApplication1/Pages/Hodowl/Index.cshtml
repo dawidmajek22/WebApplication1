@@ -1,0 +1,49 @@
+﻿@page
+@model WebApplication1.Pages.Hodowl.IndexModel
+@{
+    ViewData["Title"] = "Hodowla";
+}
+<h1>Hodowla</h1>
+<hr />
+<a asp-page="Create" class="btn btn-success">
+    <span class="bi bi-plus"></span>
+</a>
+<table class="table table-responsive table-striped">
+    <thead>
+        <tr class="text-center">
+            <th>@Html.DisplayNameFor(model => model.Hodowla[0].HodowlaId)</th>
+            <th>@Html.DisplayNameFor(model => model.Hodowla[0].Nazwa)</th>
+            <th>@Html.DisplayNameFor(model => model.Hodowla[0].Masc)</th>
+            <th>Hodowca</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hodowla in Model.Hodowla)
+        {
+            <tr class="text-center">
+                <td>@Html.DisplayFor(model => hodowla.HodowlaId)</td>
+                <td>@Html.DisplayFor(model => hodowla.Nazwa)</td>
+                <td>@Html.DisplayFor(model => hodowla.Masc)</td>
+                <td>@(hodowla.Hodowca?.Imie ?? "-")</td>
+
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@hodowla.HodowlaId" class="btn btn-primary">
+                        <span class="bi bi-pencil"></span>
+                    </a>
+                    <a asp-page="./Details" asp-route-id="@hodowla.HodowlaId" class="btn btn-info">
+                        <span class="bi bi-info-circle"></span>
+                    </a>
+                    <a asp-page="./Delete" asp-route-id="@hodowla.HodowlaId" class="btn btn-danger">
+                        <span class="bi bi-trash"></span>
+                    </a>
+                    <a asp-page="/HodowlaAdresy/Index" asp-route-id="@hodowla.HodowlaId" class="btn btn-secondary">
+                        <span class="bi bi-geo-alt"></span> Adresy
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+    <tbody>
+

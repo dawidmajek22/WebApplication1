@@ -1,0 +1,49 @@
+﻿@page
+@model WebApplication1.Pages.Hod_Ras.CreateModel
+@{
+    ViewData["Title"] = "Utwórz";
+}
+
+<h1>Utwórz</h1>
+<hr />
+<div class="row">
+    <div class="col-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Hod_Rasy.NAZWA" class="control-label"></label>
+                <input asp-for="Hod_Rasy.NAZWA" class="form-control" />
+                <span asp-validation-for="Hod_Rasy.NAZWA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hod_Rasy.GRUPA" class="control-label"></label>
+                <input asp-for="Hod_Rasy.GRUPA" class="form-control" />
+                <span asp-validation-for="Hod_Rasy.GRUPA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hod_Rasy.is_fci" class="control-label"></label>
+                <input asp-for="Hod_Rasy.is_fci" class="form-control" />
+                <span asp-validation-for="Hod_Rasy.is_fci" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hod_Rasy.nr_grupy" class="control-label"></label>
+                <input asp-for="Hod_Rasy.nr_grupy" class="form-control" />
+                <span asp-validation-for="Hod_Rasy.nr_grupy" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <a asp-page="./Index" class="btn btn-primary" title="Powrót">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <button type="submit" class="btn btn-danger" title="Utwórz">
+                    <i class="bi bi-check"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
